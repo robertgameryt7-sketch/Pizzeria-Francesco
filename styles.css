@@ -5,26 +5,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
-  /* --- Paleta Identitaria "Pizzería Francesco" --- */
-  --color-primary: #C82333;          /* Rojo Pizzería Tradicional */
-  --color-primary-light: #E03546;    /* Rojo Vivo (Estados Hover) */
-  --color-accent: #1E5631;           /* Verde Albahaca Italiano / Frescura */
-  --color-accent-hover: #287242;     /* Verde Resplandor */
+  /* --- Paleta Identitaria "Pizzas D' Francesco" --- */
+  --color-primary: #D32F2F;          /* Rojo Intenso Pizzería / Antojo Nocturno */
+  --color-primary-light: #EF5350;    /* Rojo Resplandor (Hover) */
+  --color-accent: #388E3C;           /* Verde Calidad y Frescura */
+  --color-accent-hover: #4CAF50;     /* Verde Interactivo */
   
-  /* --- Colores Integrados por Categorías de Productos --- */
-  --category-product-artisan-pizzas: #C82333;         /* Rojo Tradicional */
-  --category-product-pasta-and-baked-dishes: #D48C46;   /* Dorado Gratinado */
-  --category-product-antipasti-and-desserts: #1E5631;  /* Verde Albahaca */
+  /* --- Categorías de Productos --- */
+  --category-product-artisan-pizzas: #D32F2F;
+  --category-product-pasta-and-baked-dishes: #F57C00;
+  --category-product-antipasti-and-desserts: #388E3C;
 
-  /* --- Neutrales, Superficies & Fondos --- */
-  --color-bg: #F8F9FA;               /* Blanco Perla Limpio */
+  /* --- Superficies & Fondos --- */
+  --color-bg: #FAF9F6;               /* Blanco Hueso / Cálido */
   --color-surface: #FFFFFF;          /* Blanco Puro */
-  --color-surface-card: #FFFFFF;     /* Tarjeta Blanca */
-  --color-badge-terracota: rgba(200, 35, 51, 0.08);
+  --color-surface-card: #FFFFFF;     /* Tarjetas Blancas */
+  --color-badge-terracota: rgba(211, 47, 47, 0.08);
   --color-white: #FFFFFF;
-  --color-text-main: #1A1A1A;        /* Negro Antracita */
-  --color-text-muted: #555555;       /* Gris Legible */
-  --color-border: rgba(200, 35, 51, 0.15); /* Borde Rojo Sutil */
+  --color-text-main: #1A1A1A;        /* Negro Antracita Lectura Clara */
+  --color-text-muted: #555555;       /* Gris Secundario Legible */
+  --color-border: rgba(211, 47, 47, 0.15); /* Borde Rojo Sutil *
 
   /* --- Colores de Plataformas Sociales --- */
   --whatsapp-platform: #25D366;
@@ -55,9 +55,9 @@
   --shadow-sm: 0 2px 8px rgba(42, 30, 23, 0.06);
   --shadow-md: 0 8px 24px rgba(42, 30, 23, 0.1);
   --shadow-lg: 0 16px 36px rgba(42, 30, 23, 0.14);
+  --shadow-glow-red: 0 0 25px rgba(211, 47, 47, 0.25);
+  --shadow-glow-terracota: 0 8px 25px rgba(211, 47, 47, 0.18);
   --shadow-glow-wsp: 0 4px 20px rgba(37, 211, 102, 0.35);
-  --shadow-glow-red: 0 0 25px rgba(200, 35, 51, 0.25);
-  --shadow-glow-terracota: 0 8px 25px rgba(200, 35, 51, 0.18);  
 
   /* --- Configuraciones responsive para evitar la necesidad de media-queries --- */
   --max-width: 1200px;
@@ -419,132 +419,150 @@ img {
     transform: translateY(-4px);
 }
 
+/* ==========================================================================
+   SECCIÓN PRODUCTOS & CARTA DE PIZZAS D' FRANCESCO (BEM METHODOLOGY)
+   ========================================================================== */
+
 .products {
-    padding-block: clamp(2.5rem, 5vw, 5rem);
+  padding-block: clamp(2.5rem, 5vw, 5rem);
 }
 
 .products__container {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .products__header {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  text-align: center;
 }
 
 .products__badge {
-    font-size: var(--font-size-sm);
-    color: var(--color-primary);
-    text-transform: uppercase;
-    font-weight: bold;
-    letter-spacing: 2px;
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .products__title {
-    
+  color: var(--color-text-main);
 }
 
 .grid__products {
-    display: flex;
-    flex-direction: column;
-    gap: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
 }
 
-.category__products__container {
-    display: flex;
-    flex-direction: column;
-    padding-left: 1rem;
-    gap: 1.5rem;
+/* --- Bloque de Categoría BEM (.category-products) --- */
+.category-products {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  gap: 1.5rem;
 }
 
-.category__products__container--artisan-pizzas {
-    border-left: 2px solid var(--category-product-artisan-pizzas);
+/* Modificadores de Borde por Categoría */
+.category-products--pizzas {
+  border-left: 3px solid var(--category-product-artisan-pizzas);
 }
 
-.category__products__container--pasta-and-baked-dishes {
-    border-left: 2px solid var(--category-product-pasta-and-baked-dishes);
-}
-.category__products__container--antipasti-and-desserts {
-    border-left: 2px solid var(--category-product-antipasti-and-desserts);
+.category-products--combos {
+  border-left: 3px solid var(--category-product-pasta-and-baked-dishes);
 }
 
-.category__title {
-    color: var(--color-primary);
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-border);
+.category-products--sides {
+  border-left: 3px solid var(--category-product-antipasti-and-desserts);
 }
 
-.products__grid__container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-    gap: 1.75rem;
-    align-items: stretch;
+.category-products__title {
+  color: var(--color-primary);
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--color-border);
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
 }
 
-.product__card {
-    background: var(--color-surface-card);
-    border: 1px solid var(--color-border);
-    border-radius: var(--border-radius-md);
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition-normal);
+.category-products__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 1.75rem;
+  align-items: stretch;
 }
 
-.product__card:hover {
-    transform: translateY(-6px);
-    border-color: var(--color-primary);
-    box-shadow: var(--shadow-glow-terracota);
-
+/* --- Bloque de Tarjeta de Producto BEM (.product-card) --- */
+.product-card {
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
 }
 
-.product__badge {
-    align-self: flex-start;
-    padding: 0.25rem 0.75rem;
-    background: rgba(139, 38, 29, 0.1);
-    border-radius: var(--border-radius-sm);
-    color: var(--color-primary);
-    font-weight: 600;
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-glow-terracota);
 }
 
-.product__title {
-    font-size: 1.4rem;
+.product-card__badge {
+  align-self: flex-start;
+  padding: 0.25rem 0.75rem;
+  background-color: var(--color-badge-terracota);
+  border-radius: var(--border-radius-sm);
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
 }
 
-.product__img {
-    height: 220px;
-    border-radius: var(--border-radius-sm);
-    border: 1px solid var(--color-border);
+.product-card__title {
+  font-size: 1.35rem;
+  color: var(--color-text-main);
+  font-family: var(--font-heading);
 }
 
-.product__description {
-    font-size: 0.95rem;
+.product-card__img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-sm);
+  border: 1px solid var(--color-border);
 }
 
-.product__cost {
-    font-weight: bold;
-    color: var(--color-accent);
-    font-size: 1.1rem;
+.product-card__description {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
 }
 
+.product-card__cost {
+  font-weight: bold;
+  color: var(--color-accent);
+  font-size: 1.05rem;
+}
+
+/* El botón empuja al fondo para alineación perfecta */
 .button--product {
-    margin-top: auto;
-    background: var(--whatsapp-platform);
-    color: var(--color-white);
-    border-radius: var(--border-radius-sm);
-    font-weight: bold;
-    transition: var(--transition-normal);
+  margin-top: auto;
+  background-color: var(--whatsapp-platform);
+  color: var(--color-white);
+  border-radius: var(--border-radius-sm);
+  font-weight: bold;
+  padding: 0.75rem 1.25rem;
+  transition: var(--transition-normal);
 }
 
 .button--product:hover {
-    background: var(--whatsapp-hover);
-    box-shadow: var(--shadow-glow-wsp);
+  background-color: var(--whatsapp-hover);
+  box-shadow: var(--shadow-glow-wsp);
 }
 
 .footer {
